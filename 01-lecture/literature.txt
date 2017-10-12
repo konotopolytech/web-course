@@ -1,0 +1,13 @@
+Довідка і посібники з bash
+
+http://www.gnu.org/software/bash/manual/bashref.html
+http://www.opennet.ru/docs/RUS/bash_scripting_guide/
+http://www.stanovlenie.org.ua/manual-bash/
+
+
+Книга Pro Git повний переклад російською, частковий переклад українською. Доступна для зкачування у
+pdf форматі
+
+https://git-scm.com/book/en/v2 - аглійська
+https://git-scm.com/book/ru/v2 - російська
+https://git-scm.com/book/uk/v2 - українська
