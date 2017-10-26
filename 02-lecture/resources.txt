@@ -1,0 +1,4 @@
+Довідник з HTML:
+
+https://webref.ru/html - російською
+https://www.w3schools.com/html - англійською, існує можливість перекладу сторінки.
