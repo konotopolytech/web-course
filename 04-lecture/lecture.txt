@@ -1,0 +1,152 @@
+1 Таблічне та блочне верстання
+
+Якщо ми подивимось на те як розташовані елементи у нашому index.html, то побачимо, що всі вони ідуть 
+один за одним кожен у окремому рядку. Для того щоб уникнути цього ефекту на зорі веб-будівництва 
+використовувалось так зване табличне верстання. Тобто шаблон сторінки вписувався у відповідну комірку 
+таблиці. Тегі таблиць які мають використовуватись для розмітки контенту використовувались для його 
+стилізації. 
+
+Це не припустимо по-перше тому, що код html-файлу втрачав зрозумілість, не було видно де таблиця яка
+відповідає за стиль, а де таблиця яка просто представляє дані у табличному вигляді.
+
+Для того щоб уникнути цієї проблеми було введено поняття блочної розмітки при якому кожен елемент 
+був представлений як окремий блок і мог бути відповідно стилізован.
+
+В якості блоку можна розглядати і елемент параграф - тег р, і заголовок - h, але все ж таки вони мають 
+своє призначення. Тому у специфікацію html були введені тегі div і span.
+
+Тег div це елемент який використовується для групування блоків, наприклад:
+<div>
+    <h1>Lorem Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Pellentesque ipsum nisl, consequat ac enim vel, porttitor placerat leo.</p>
+    <p>In sodales, velit non sollicitudin fermentum, ipsum magna viverra nibh, nec pharetra mauris 
+    enim eget risus.</p>
+</div>
+
+Тег span це елемент який використовується для групування рядків, наприклад:
+<h1>Lorem Ipsum</h1>
+<p>Lorem ipsum dolor <span>sit amet</span>, consectetur adipiscing elit.</p>
+<p>Pellentesque ipsum nisl, consequat ac enim vel, <span>porttitor placerat leo</span>.</p>
+
+Елементи можуть бути вкладеними один в інший, але зазвичай, бо це відповідає логіці, span вкладають
+у div, а не навпаки.
+
+2 Модель контейнерів, або boxmodel
+
+Як ми вже згадували, кожен елемент може розглядатись як блок. З точки зору CSS блок це обгортка у яку
+обгорнутий кожен елемент сторінки. Елементи типу параграф або заголовок не являються блочними, і для 
+того щоб використовувати їх як блок треба застосовувати до них css-інструкцію display:block.
+
+Ця обгортка скаладається з наступних елементів:
+- зовнішні порожні смужки (margins);
+- рамка (borders); 
+- внутрішні порожні смужки (padding); 
+- область вмісту.
+
+Побачити схему блока можна за адресою https://www.w3schools.com/css/css_boxmodel.asp
+
+Приклад структури блока за адресою 04-lecture/code/boxmodel.html
+
+
+3 Позиціонування блоків
+
+Якщо не застосовувати позиціонування до блоків, то за умовчанням вони розміщатимуться так само як і
+всі інші елементи кожен у окремому рядку. Це розташування називають розташуванням у нормальному потоці
+документу.
+
+Для розташування блоків у певному порядку використовується css-інструкція position яка може мати 
+наступні значення:
+- relative;
+- absolute;
+- fixed;
+- static;
+- sticky.
+
+При використанні позиціонування relative блок розташовується відносно свого міста у нормальному потоці
+документу після чого з допомогою встановлення значень top, left, right, bottom встановлюється його 
+нова позиція. Позиція елементу з відносним позиціонуванням впливає на позицію іншіх елементів, які 
+розташовані слідом за ним.
+
+В разі абсолютного (absolute) позиціонування елементу він виключається з нормального потоку документу 
+відповідно не має впливу на інші елементи. Позиціонується він відносно найближчого батьківського 
+елементу.
+
+Фіксоване позиціонування схоже на абсолютне тільки в цьому випадку блок фіксується на своїй позиції,
+а потоко документу проходить повз нього.
+
+Приклад відносного і абсолютного позиціонування https://jsfiddle.net/api/post/library/pure/
+
+
+4 Плаваючі елементи
+
+До блочного елементу можна застосувати css-інструкцію float яка приймає значення right або left.
+Плаваючий елемент зміщуються вліво або вправо доки його зовнішня кромка не торкнеться кромки контейнера
+в якому знаходиться елемент.
+
+
+
+Практикум
+
+1 У своїй директорії проекту створити документ position.html в якому створити чотири блоки div у яких 
+розташувати
+- у першому заголовок першого рівня із текстом "Блочна модель документу";
+- у другому створити два параграфи із текстом 1) "На четвертому занятті вивчається блочна система 
+розміткі", 2) "Розглядаються способи позиціонування елементів."
+- у третьому розмістити зображення з 04-lecture/code/img/example.jpg, встановити для зображення ширину у 250px.
+- у четвертий вставити наступні п’ять параграфів:
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat, nibh a vehicula euismod, 
+ipsum lacus convallis nunc, vitae aliquet augue tellus ac orci. Vivamus pretium egestas magna et luctus.
+Fusce turpis justo, ornare vel ante eu, vehicula laoreet ligula. Nulla facilisi. Orci varius natoque 
+penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam velit dolor, interdum sed suscipit 
+quis, venenatis ac augue. Pellentesque molestie lorem quis tincidunt tincidunt. Etiam venenatis neque a erat 
+finibus interdum vel cursus enim. Sed posuere sollicitudin mi sed fringilla. Sed quis urna quis nisi varius 
+imperdiet vitae vel purus.</p>
+
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam condimentum 
+arcu in vehicula vulputate. In hac habitasse platea dictumst. Proin at pretium magna, quis eleifend ligula. 
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis eget eros 
+sollicitudin nulla fermentum imperdiet. Donec rutrum nunc sed interdum fringilla. Morbi tempor rhoncus nulla 
+eu sodales. Fusce rhoncus consectetur nunc eget elementum. Vivamus consectetur quam nec gravida sagittis. 
+Fusce velit ex, dapibus id consectetur rutrum, vehicula sed ante. In vulputate ut tellus et malesuada. Aliquam 
+ut neque odio. Vestibulum luctus ac tellus eget placerat.</p>
+
+<p>Integer dictum urna nibh, eu pulvinar dui vulputate eu. Aenean consequat in purus non pretium. Aenean 
+volutpat nisi purus, sed aliquam tellus commodo non. Integer nibh nisl, ultrices id laoreet tempus, mollis 
+ac eros. Nullam ipsum justo, posuere in erat ut, iaculis accumsan eros. Phasellus sed rutrum purus. Nullam 
+in ex nec mauris dictum tristique. Sed non elit turpis. Quisque interdum nulla ut porta luctus. Cras dapibus 
+vestibulum varius. Praesent eget nibh eget velit consequat pulvinar. In porttitor, erat non auctor euismod, 
+ex ante vulputate augue, ut interdum ex mi auctor quam. Suspendisse ac urna at tortor luctus consectetur. 
+Morbi vestibulum, purus eget efficitur fermentum, purus mauris ullamcorper dui, ut mattis dui massa tincidunt 
+odio. Etiam pellentesque velit sit amet lorem sagittis dignissim. In finibus congue nisl non aliquet.</p>
+
+<p>Nunc viverra felis id ipsum sollicitudin, suscipit ultrices massa porta. Sed gravida erat libero, eget 
+molestie nibh imperdiet quis. Curabitur non velit lacinia, tincidunt nibh eu, ornare nibh. Nulla efficitur 
+convallis purus nec rhoncus. Sed sed felis sed lectus sagittis imperdiet. Maecenas nec erat nec dui elementum 
+luctus malesuada ut nisi. In lobortis id justo quis eleifend. Sed sollicitudin, tellus sit amet vulputate venenatis, 
+orci leo venenatis leo, ut dapibus elit ex ut ex. Duis facilisis nisi a tincidunt dictum. Nam molestie lectus a 
+finibus fringilla. Nulla in elementum nunc. Curabitur luctus, neque eget commodo aliquam, lacus lacus lobortis leo, 
+at rhoncus turpis risus in elit. Integer ut nunc ipsum. Suspendisse potenti. Nam convallis aliquet metus vitae 
+dignissim.</p>
+
+<p>Fusce vulputate pulvinar neque. Cras malesuada nec nulla eget tincidunt. Morbi facilisis aliquet nulla, non 
+eleifend justo consectetur sed. Sed ullamcorper purus venenatis facilisis fringilla. Pellentesque in ultrices 
+elit. Nullam non cursus dolor. Vestibulum interdum ut dolor id suscipit. Duis eu ante odio. Fusce dictum mollis 
+tristique. Duis at velit arcu. Etiam at tincidunt sem. Nunc blandit turpis nibh. Nullam rutrum ligula augue, id 
+cursus nunc molestie et. Vivamus facilisis ante ac sodales ullamcorper. Cras vel risus imperdiet, fermentum nibh 
+ac, commodo nibh. Mauris lorem elit, maximus quis mi vitae, iaculis euismod nunc.</p>
+
+
+2 Для першого блоку встановити фіксоване позіционування, для тексту заголовку задати червоний колір.
+3 Для другого і третього блоку задати плаваюче позиціонування другий відсунути двідносне позиціонування.о правого краю, а 
+третій до лівого.
+4 Встановити колір заднього плану другого блоку у #d3d3d3;
+5 Встановити колір заднього плану третього блоку у #3d3d3d;
+6 Для параграфів четвертого блоку встановити розмір шрифту у 20px
+
+
+
+Домашнє завдання: з’ясувати як працюють інші види позиціонування.
+
+

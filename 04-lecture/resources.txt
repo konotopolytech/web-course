@@ -1,0 +1,5 @@
+Схема блочної моделі: https://www.w3schools.com/css/css_boxmodel.asp
+Приклад відносного і абсолютного позиціонування: https://jsfiddle.net/api/post/library/pure/
+
+Довідка про види позиціонування: https://webref.ru/css/position
+Довідка про плаваючі елементи: https://webref.ru/css/float
