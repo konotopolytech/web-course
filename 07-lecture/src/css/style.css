@@ -1,0 +1,122 @@
+/*Bootstrap Example*/
+.container .col-xs-12 {
+  padding: 0;
+}
+
+#navbar {
+  display: block;
+  height: 45px;
+  width: 100%;
+  background-color: rgba(255,255,255, .5);  
+}
+
+#navbar #menu {
+  list-style-type: none;  
+  padding-top: 15px;
+  padding-left: 0;
+  float: right;
+}
+
+#menu li {
+  float: left;
+  margin: 0 5px;
+}
+  
+#stage-01 {
+  height: 40vh;
+  background-image: url('../img/program-code.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover; 
+}
+
+#stage-01 h1 {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 23px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#stage-01 a {
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  width: 75px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px 15px;
+  background-color: #fabc00;
+  border-radius: 15px;
+}
+
+#tools h2, #tools .col-xs-12 {
+  text-align: center;
+}
+
+
+#html, #css, #js {
+  padding-top: 90px;
+  margin: 0;
+}
+
+#html {  
+  background: url(../img/html5-64.png) no-repeat 50% 50%;
+}
+
+#css {
+  background: url(../img/css3-64.png) no-repeat 50% 50%;
+}
+
+#js {
+  background: url(../img/js-64.png) no-repeat 50% 50%;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////*/
+/* Media Query */
+@media (min-width: 992px) {
+/*   STAGE 01 */
+  #stage-01 h1 {
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  #stage-01 a {
+    width: 150px;
+    padding: 8px 30px;
+    border-radius: 15px;
+    font-size: 22px;
+    margin-top: 20px;
+  }  
+}
+
+@media (min-width: 1200px) {
+  /*   STAGE 01 */
+  #stage-01 h1 {
+    font-size: 60px;
+    margin-top: 80px;
+  }
+
+  #stage-01 a {
+    margin-top: 60px;
+  }  
+  
+  /* TOOLS */
+  #html, #css, #js {
+    padding-top: 200px;
+  }
+  
+  #html {  
+    background: url(../img/html5-128.png) no-repeat 50% 50%;
+  }
+
+  #css {
+    background: url(../img/css3-128.png) no-repeat 50% 50%;
+  }
+
+  #js {
+    background: url(../img/js-128.png) no-repeat 50% 50%;
+}
+}
