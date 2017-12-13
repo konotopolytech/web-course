@@ -1,0 +1,9 @@
+English
+https://www.w3schools.com/js
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Частковий переклад українською
+https://developer.mozilla.org/uk/docs/Web/JavaScript
+
+Російською
+https://learn.javascript.ru/
