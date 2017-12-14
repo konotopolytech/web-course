@@ -1,0 +1,11 @@
+jQuery official site
+https://jquery.com/
+
+Остання версія jquery просто клацнути на посиланні правою кнопкою миші і зберегти до себе у проект
+https://code.jquery.com/jquery-3.2.1.js
+
+Довідка jQuery
+http://api.jquery.com/
+
+Навчальний курс з jQuery
+https://www.w3schools.com/jquery/default.asp

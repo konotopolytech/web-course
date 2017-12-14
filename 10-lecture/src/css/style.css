@@ -1,0 +1,99 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: yellow;
+}
+
+header {
+  position: fixed;
+  margin-top: -15px;
+  height: 150px;
+  width: 100%;
+  background-color: red;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+#leftside {
+  display: block;
+  height: 200px;
+  padding-top: 150px;  
+}
+
+#leftside h2 {
+  font-size: 35px;
+  text-align: center;
+  margin: 0 0 15px;
+}
+
+#leftside ul {
+  padding: 10px 50px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+#leftside ul li {  
+  float: left;
+  font-size: 18px;
+  padding: 5px 15px;  
+}
+
+#rightside {
+  padding: 20px;
+  background-color: #d3d3d3;
+}
+
+#rightside h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#footer {
+  background-color: blue;
+  display: block;
+  height: 80px;
+  padding-top: 10px;
+}
+
+#footer-descr {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 60px;
+    margin-top: 50px;
+  }
+  
+  #leftside {
+    float: left;
+    width: 29%; 
+  }
+  
+  #rightside {
+    margin-top: 135px;  
+    float: right;
+    width: 65%;
+  }
+  
+  #footer {
+    clear: both;
+  }
+}
+
+#anchor-three {
+  padding-top: 50px;
+}
