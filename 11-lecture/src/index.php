@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>Test PHP scripts</h1>
-  <p>Сьогодні: <?= date('d.m.Y H:i:s', time()); ?></p>
+  <p>Сьогодні: <?= date('d.m.Y', time()); ?></p>
   
   <h2>Виведення значень від 0 до 10 у циклі</h2>
   <ul>
