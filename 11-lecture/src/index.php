@@ -15,7 +15,7 @@
     <?php endfor; ?>
   </ul>
   
-  <?php if(empty($_GET['a'])): ?>
+  <?php if(empty($_GET['flag'])): ?>
     <h2><?php hello(); ?></h2>
   <?php else: ?>
     <h2><?php hello(true); ?></h2>
@@ -27,7 +27,7 @@
 <?php
   function hello ($query=false) {
     if($query) {
-      echo "Hello " . $_GET['q'];
+      echo "Hello " . $_GET['name'];
     } else {
       echo "Hello World";    
     }
