@@ -1,0 +1,7 @@
+Документація по PHP
+http://php.net/manual/ru/
+
+Довідник функцій PHP
+http://php.net/manual/ru/funcref.php
+
+Дмитро Котеров "PHP 7"
