@@ -7,24 +7,23 @@ require_once "FamilyAutoEngine.php";
 $auto = new Automobile();
 $engine = new FamilyAutoEngine();
 
-$auto.setEngine($engine);
+$auto->setEngine($engine);
 
-$auto.move(true);
+echo "Let's move! ";
+$auto->move(true);
 echo "\n";
-$auto.getSpeed();
-echo "\n";
-$auto.increaseSpeed();
-$auto.getSpeed();
-echo "\n";
+echo "Current speed is " . $auto->getSpeed() . "\n";
+
+echo "Let's get speed\n";
 
 for ($i = 0; $i < 5; $i++) {
-	$auto.increaseSpeed();
+	$auto->increaseSpeed();
 }
 
-$auto.getSpeed();
+echo "Current speed is " . $auto->getSpeed() . "\n";
+
+echo "Let's stop! ";
+$auto->move();
 echo "\n";
 
-$auto.move();
-echo "\n";
-$auto.getSpeed();
-echo "\n";
+echo "Current speed is " . $auto->getSpeed() . "\n";

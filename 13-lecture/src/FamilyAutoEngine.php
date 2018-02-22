@@ -2,7 +2,7 @@
 
 require_once "IEngine.php";
 
-class FamilyAutoEngine extends Engine {
+class FamilyAutoEngine implements IEngine {
     private $switch_state;
     private $speed;
 
@@ -16,7 +16,7 @@ class FamilyAutoEngine extends Engine {
         $this->speed = 0;
     }
 
-    public function switch($on) {
+    public function letSwitch($on) {
         $this->switch_state = $on;        
         $this->checkSpeed();
     }
@@ -44,6 +44,6 @@ class FamilyAutoEngine extends Engine {
     }
 
     public function getSpeed() {
-        echo $this->speed;
+        return $this->speed;
     }
 }

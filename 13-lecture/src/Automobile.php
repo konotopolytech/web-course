@@ -1,17 +1,17 @@
 <?php
 
 require_once "FamilyAutoEngine.php";
-
+require_once "IEngine.php";
 
 class Automobile {
     private $engine;
     
-    public function setEngine(Engine $engine) {
+    public function setEngine(IEngine $engine) {
         $this->engine = $engine;
     }
 
     public function move($on = false) {
-        $this->engine->switch($on);
+        $this->engine->letSwitch($on);
         $this->run();
     }
 
@@ -28,6 +28,6 @@ class Automobile {
     }
 
     public function getSpeed() {
-        echo $this->engine->getSpeed();
+        return $this->engine->getSpeed();
     }
 }
