@@ -1,8 +1,8 @@
 <?php
-require IComputer.php;
-require Computer.php;
+require_once("IComputer.php");
+require_once("Computer.php");
 
-class ComputerFacade implements IComputer {
+class ComputerFacade {
     protected $computer;
 
     
@@ -17,6 +17,7 @@ class ComputerFacade implements IComputer {
     }
 
     public function turnOff() {
+        echo "\n\nLet's stop:\n\n";
         $this->computer->closeEverything();
         $this->computer->turnOff();
         $this->computer->state();
