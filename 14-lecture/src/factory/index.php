@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Factory Pattern</title>
-</head>
-<body>
-    <form action="">
-    <?php
-        require ButtonFactory.php;
-        echo "<p>" . ButtonFactory::createButton('add')->getHtml() . "</p>";
-    ?>
-    </form>
-</body>
-</html>
+<?php
+require_once("ButtonFactory.php");
+
+echo ButtonFactory::createButton('add')->getHtml() . "\n";
+echo ButtonFactory::createButton('save')->getHtml() . "\n";
+echo ButtonFactory::createButton('cancel')->getHtml() . "\n";
 
