@@ -91,3 +91,6 @@ use yii\helpers\Html;
 <?= Html::encode($message)?>
 
 Провести детальний аналіз коду
+
+
+https://gist.github.com/konotopolytech

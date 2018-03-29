@@ -1,14 +1,13 @@
 <?php
 
-class Session
-{
+class SessionRegister {
     private static $instance;
     private $counter = 0;
 
     public static function getInstance()
     {
         if( is_null(self::$instance) ) {
-                self::$instance = new self();
+              self::$instance = new self();
         }
 
         return self::$instance;
