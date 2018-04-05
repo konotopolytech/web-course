@@ -1,0 +1,242 @@
+Робота з моделями
+
+1 Створення форми введення (без збереження даних у БД)
+
+Модель форми models/ExamForm.pnp:
+
+<?php
+namespace app\models;
+
+use \yii\base\Model;
+
+class ExamForm extends Model {
+  public $firstName;
+  public $lastName;
+  // Add phone and email
+  
+  public function rules() {
+    return [
+      ['firstName', 'required', 'message'=>'Please put your first name'], 
+      ['lastName', 'required', 'message'=>'Please put your last name'],
+      [['firstName', 'lastName'], 'string', 'max' => 10, 'message'=>'Name too long'],
+    ];
+  }
+}
+?>
+
+
+Форма views/city/exam.php
+
+<?php 
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+if(isset($model)) {
+$form = ActiveForm::begin([
+    'id' => 'exam-form',
+    'options' => ['class' => 'form-horizontal'],
+]) ?>
+    <?= $form->field($model, 'firstName') ?>
+    <?= $form->field($model, 'lastName') ?>
+
+    <?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
+
+<?php ActiveForm::end(); }?>
+
+<?php
+  if(isset($result_model)) {
+    echo $result_model->firstName . "<br/>";
+    echo $result_model->lastName . "<br/>";
+  }
+?>
+
+Контролер controllers/CityController:
+
+  <?php
+
+namespace app\controllers;
+
+use app\models\City;
+use app\models\ExamForm;
+use yii\web\Controller;
+
+class CityController extends Controller
+{
+  ...
+  
+  public function actionExam() {
+    $form_model = new ExamForm;
+    if($form_model->load(\Yii::$app->request->post())){
+      return $this->render('exam', ['result_model'=>$form_model]);   
+    }
+
+    return $this->render('exam', ['model'=>$form_model]);   
+  }
+}
+
+
+2 Вибирання даних з БД і показ їх у відображенні
+
+Модель models/City.php:
+
+<?php
+
+namespace app\models;
+
+use yii\db\ActiveRecord;
+
+class City extends ActiveRecord
+{
+  
+}
+?>
+
+Контролер controllers/CityController:
+
+<?php
+
+namespace app\controllers;
+
+use app\models\City;
+use app\models\ExamForm;
+use yii\web\Controller;
+
+class CityController extends Controller
+{
+  public function actionIndex() {
+    $cities = City::find()->all();  
+    
+    if ($cities === null) {
+        throw new NotFoundHttpException;
+    }
+
+    return $this->render('index', ['title'=> 'City Table Data', 'cities'=>$cities]);
+  }
+  
+  
+  public function actionOne() {
+    $cities = City::find()->where(['id'=>3475])->one();  
+    
+    if ($cities === null) {
+        throw new NotFoundHttpException;
+    }
+
+    return $this->render('one', ['title'=> 'City', 'cities'=>$cities]);
+  }
+
+  
+  public function actionSeveral() {
+    $cities = City::findAll(['CountryCode' => 'UKR']);  
+    
+    if ($cities === null) {
+        throw new NotFoundHttpException;
+    }
+
+    return $this->render('index', ['title'=> 'City Table Data', 'cities'=>$cities]);
+  }
+  ...
+}
+
+Відображення окремого запису views/city/one.php
+
+<?php
+use yii\helpers\Html;
+?>
+<h1><?= $title . ": " . $cities->Name; ?></h1>
+<?php
+  foreach($cities as $field => $value){          
+    echo $field . ": " . $value . "<br/>";
+  }
+?>
+
+Відображення низки записів views/city/index.php
+
+<?php
+use yii\helpers\Html;
+?>
+<h1><?= $title; ?></h1>
+<?php
+
+  foreach($cities as $city ){  
+    echo "Name: " . $city->Name . "<br/>";
+    echo "Country Code: " . $city->CountryCode . "<br/>";
+    echo "District: " . $city->District . "<br/>";
+    echo "====================================<br/>";
+  }
+?>
+
+
+3 Додавання запису у БД
+
+Контролер controllers/CityController:
+
+<?php
+
+namespace app\controllers;
+
+use Yii;
+use app\models\City;
+use app\models\ExamForm;
+use app\models\CityForm;
+use yii\web\Controller;
+
+class CityController extends Controller
+{ 
+  ...
+  
+  public function actionAddcity()
+    {
+      $model = new CityForm();
+
+      if( $model->load(Yii::$app->request->post()) ){
+          if( $model->save() ){
+              return $this->refresh();
+          }
+      }
+
+      return $this->render('city', compact('model'));
+    }
+}
+
+Модель models/CityForm
+
+<?php
+
+namespace app\models;
+use yii\db\ActiveRecord;
+
+
+class CityForm extends ActiveRecord
+{
+    public static function tableName(){
+        return 'city';
+    }
+
+    public function rules(){
+        return [
+            [ 'Name', 'required', 'message'=>'Please put your first name' ],
+            [ 'CountryCode', 'required', 'message'=>'Please put your first name' ],
+            [ 'District', 'required', 'message'=>'Please put your first name' ],
+            [ 'Population', 'required', 'message'=>'Please put your first name' ],
+            [['Name', 'CountryCode', 'District'], 'string', 'max' => 25, 'message'=>'Value too long'],
+        ];
+    }
+}
+
+Відображення views/city/city.php
+
+<?php
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+?>
+<h1>Add new City</h1>
+
+<?php $form = ActiveForm::begin(['options' => ['id' => 'Addcity', 'enctype' => 'multipart/form-data']]) ?>
+<?= $form->field($model, 'Name')?>
+<?= $form->field($model, 'CountryCode')?>
+<?= $form->field($model, 'District')?>
+<?= $form->field($model, 'Population')?>
+
+<?= Html::submitButton('Save', ['class' => 'btn btn-success'])?>
+<?php ActiveForm::end() ?>
